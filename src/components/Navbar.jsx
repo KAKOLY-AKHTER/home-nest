@@ -1,0 +1,152 @@
+import React, { useContext, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import logo from "../assets/logo.png";
+import { FaHome, FaRegStar } from "react-icons/fa";
+import { MdAddHome, MdOutlineRealEstateAgent, MdMenu, MdClose } from "react-icons/md";
+import { RiBuilding2Line } from "react-icons/ri";
+
+export default function Navbar() {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleLogout = async () => {
+    await logOut();
+    navigate("/");
+  };
+
+  const navLinks = (
+    <>
+      <li>
+        <NavLink to="/" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+          <FaHome className="inline mr-1" /> Home
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/all-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+          <RiBuilding2Line className="inline mr-1" /> All Properties
+        </NavLink>
+      </li>
+
+      {user && (
+        <>
+          <li>
+            <NavLink to="/add-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+              <MdAddHome className="inline mr-1" /> Add Property
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/my-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+              <MdOutlineRealEstateAgent className="inline mr-1" /> My Properties
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/my-ratings" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+              <FaRegStar className="inline mr-1" /> My Ratings
+            </NavLink>
+          </li>
+        </>
+      )}
+    </>
+  );
+
+  return (
+    <header className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="container mx-auto max-w-[1250px] flex items-center justify-between py-3 px-6">
+        {/* Logo */}
+        <Link to="/" className="flex items-center">
+          <img className="h-20 w-20 rounded-full" src="https://www.shutterstock.com/image-vector/real-estate-logo-template-home-260nw-2485751935.jpg" alt="HomeNest Logo" />
+          <span className="font-bold text-lg text-blue-600">HomeNest</span>
+        </Link>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-6 font-medium">{navLinks}</ul>
+
+        {/* Auth Buttons / Profile */}
+        <div className="hidden md:flex items-center gap-3">
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="flex items-center">
+                <img
+                  src={user.photoURL || "https://cdn-icons-png.flaticon.com/512/149/149071.png"}
+                  alt="User"
+                  className="w-9 h-9 rounded-full border-2 border-blue-400 cursor-pointer"
+                  title={user.displayName || "User"}
+                />
+              </div>
+              <ul tabIndex={0} className="dropdown-content menu p-3 shadow bg-base-100 rounded-box w-52 mt-3">
+                <li className="text-center font-semibold">{user.displayName || "User"}</li>
+                <li className="text-center text-gray-500 text-sm">{user.email}</li>
+                <div className="divider my-1"></div>
+                <li>
+                  <button onClick={handleLogout} className="btn btn-error btn-sm text-white w-full">
+                    Log Out
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <Link
+                to="/login"
+                className="btn btn-outline btn-sm border-blue-500 text-blue-600 hover:bg-blue-600 hover:text-white"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="btn btn-sm bg-blue-600 text-white hover:bg-blue-700"
+              >
+                Register
+              </Link>
+            </div>
+          )}
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden text-2xl text-amber-600"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <MdClose /> : <MdMenu />}
+        </button>
+      </div>
+
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-md p-4">
+          <ul className="space-y-3">{navLinks}</ul>
+          <div className="mt-4">
+            {user ? (
+              <button
+                onClick={handleLogout}
+                className="btn btn-error btn-sm w-full text-white"
+              >
+                Log Out
+              </button>
+            ) : (
+              <div className="flex gap-2 mt-2">
+                <Link
+                  to="/login"
+                  className="btn btn-outline btn-sm border-blue-500 text-blue-600 hover:bg-blue-600 hover:text-white w-1/2"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="btn btn-sm bg-blue-600 text-white hover:bg-blue-700 w-1/2"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
