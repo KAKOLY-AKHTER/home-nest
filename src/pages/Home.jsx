@@ -17,7 +17,7 @@ import { PropertyCard } from "../components/PropertyCard";
 
 export default function Home() {
   const properties = useLoaderData();
-const popular = Array.isArray(properties) ? properties.slice(0, 4) : [];
+const popular = Array.isArray(properties) ? properties.slice(0, 6) : [];
 
   return (
     <div className="container mx-auto mt-10 max-w-[1280px] px-4 md:py-20 py-90">

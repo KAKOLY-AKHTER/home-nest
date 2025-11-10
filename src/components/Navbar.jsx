@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import logo from "../assets/logo.png";
 import { FaHome, FaRegStar } from "react-icons/fa";
 import { MdAddHome, MdOutlineRealEstateAgent, MdMenu, MdClose } from "react-icons/md";
 import { RiBuilding2Line } from "react-icons/ri";

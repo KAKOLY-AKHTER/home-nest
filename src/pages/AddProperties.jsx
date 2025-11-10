@@ -1,10 +1,10 @@
-import { use } from "react";
+import { use, useContext } from "react";
 
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/AuthContext";
 
 const AddProperty = () => {
-  const { user } = use(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const AddProperty = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`, // if using verifyToken middleware
+          Authorization: `Bearer ${user.accessToken}`, // if using verifyToken middleware
         },
         body: JSON.stringify(formData),
       });
