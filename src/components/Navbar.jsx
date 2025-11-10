@@ -1,19 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { FaHome, FaRegStar } from "react-icons/fa";
-import { MdAddHome, MdOutlineRealEstateAgent, MdMenu, MdClose } from "react-icons/md";
+import { MdAddHome, MdOutlineRealEstateAgent, MdMenu, MdClose, MdLightMode, MdDarkMode } from "react-icons/md";
+
 import { RiBuilding2Line } from "react-icons/ri";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const handleLogout = async () => {
     await logOut();
     navigate("/");
   };
+
+
+
+   useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
 
   const navLinks = (
     <>
@@ -65,7 +83,7 @@ export default function Navbar() {
   );
 
   return (
-    <header className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+    <header className="bg-white dark:bg-gray-900 dark:text-white shadow-md fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto max-w-[1250px] flex items-center justify-between py-3 px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -78,6 +96,12 @@ export default function Navbar() {
 
         {/* Auth Buttons / Profile */}
         <div className="hidden md:flex items-center gap-3">
+
+           <button onClick={toggleTheme} className="text-2xl text-amber-600 dark:text-yellow-300">
+            {theme === "dark" ? <MdLightMode /> : <MdDarkMode />}
+          </button>
+
+
           {user ? (
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="flex items-center">
