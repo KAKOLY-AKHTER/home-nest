@@ -18,13 +18,18 @@ export default function Navbar() {
   const navLinks = (
     <>
       <li>
-        <NavLink to="/" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+        <NavLink
+         onClick={() => setMenuOpen(false)} 
+         to="/" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
           <FaHome className="inline mr-1" /> Home
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="/all-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+        <NavLink 
+        
+         onClick={() => setMenuOpen(false)} 
+         to="/all-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
           <RiBuilding2Line className="inline mr-1" /> All Properties
         </NavLink>
       </li>
@@ -32,19 +37,25 @@ export default function Navbar() {
       {user && (
         <>
           <li>
-            <NavLink to="/add-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+            <NavLink
+             onClick={() => setMenuOpen(false)} 
+             to="/add-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
               <MdAddHome className="inline mr-1" /> Add Property
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/my-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+            <NavLink
+             onClick={() => setMenuOpen(false)} 
+             to="/my-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
               <MdOutlineRealEstateAgent className="inline mr-1" /> My Properties
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/my-ratings" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+            <NavLink
+             onClick={() => setMenuOpen(false)} 
+             to="/my-ratings" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
               <FaRegStar className="inline mr-1" /> My Ratings
             </NavLink>
           </li>
