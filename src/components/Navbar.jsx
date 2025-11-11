@@ -155,9 +155,30 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-md p-4">
+        <div className="md:hidden base-100  shadow-md p-4">
           <ul className="space-y-3">{navLinks}</ul>
+
+           <div className="flex items-center justify-between mt-4">
+      <span className="text-sm font-medium">Theme:</span>
+      <label className="flex items-center gap-2 cursor-pointer">
+        <input
+          type="checkbox"
+          className="toggle toggle-secondary"
+          onChange={(e) => handleTheme(e.target.checked)}
+          defaultChecked={theme === "dark"}
+        />
+        <span className="text-sm">{theme === "dark" ? "Dark" : "Light"}</span>
+      </label>
+    </div>
+
+    <div className="mt-4"></div>
+
+
           <div className="mt-4">
+
+
+
+
             {user ? (
               <button
                 onClick={handleLogout}
