@@ -1,4 +1,5 @@
 
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export const PropertyCard = ({ skill }) => {
@@ -25,8 +26,9 @@ export const PropertyCard = ({ skill }) => {
         <div className="absolute top-2 left-2 bg-gradient-to-r from-sky-300 to-blue-500 text-white text-xs px-3 py-1 rounded-full shadow-md">
           {category}
         </div>
-        <div className="absolute bottom-2 right-2 z-10 bg-black/60 text-white text-xs px-2 py-1 rounded">
-          {location}
+        <div className="absolute bottom-2 right-2 z-10 bg-black/60 text-white text-xs px-2 py-1 flex gap-2 rounded">
+        <FaMapMarkerAlt className="text-white text-sm" />
+  {location}
         </div>
       </figure>
 
@@ -34,15 +36,16 @@ export const PropertyCard = ({ skill }) => {
         <h2 className="text-lg font-semibold text-pink-300">{propertyName}</h2>
         <p className="text-sm bg-gradient-to-r from-black to-blue-300 bg-clip-text text-transparent line-clamp-2">{shortDescription}</p>
         <div className="flex justify-between text-xs bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-          <span>By: {userName}</span>
-          <span>{new Date(createdAt).toLocaleDateString()}</span>
+          {/* <span>By: {userName}</span> */}
+          <span  className="text-pink-400 font-bold text-md">{new Date(createdAt).toLocaleDateString()}</span>
+           <span className="text-pink-400 font-bold text-lg">৳{price?.toLocaleString()}</span>
         </div>
 
-        <div className="flex justify-between items-center mt-4">
-          <span className="text-pink-400 font-bold text-lg">৳{price?.toLocaleString()}</span>
+        <div className=" w-full mt-4">
+         
           <Link
             to={`/property-details/${_id}`}
-            className="px-4 py-1 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
+            className="w-full block text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
           >
             View Details
           </Link>
