@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 
-export const PropertyCard = ({ property }) => {
+export const PropertyCard = ({ skill }) => {
   const {
     propertyName,
     image,
@@ -12,7 +12,7 @@ export const PropertyCard = ({ property }) => {
     createdAt,
     location,
     price,
-  } = property;
+  } = skill;
 
   return (
     <div className="relative  border border-white/30 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:border-white/50 hover:brightness-105  ">

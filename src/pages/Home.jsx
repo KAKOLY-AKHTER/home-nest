@@ -11,13 +11,30 @@ import {
   FaStar,
   FaUserTie,
 } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { PropertyCard } from "../components/PropertyCard";
+import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  const properties = useLoaderData();
-const popular = Array.isArray(properties) ? properties.slice(0, 6) : [];
+  // const properties = useLoaderData();
+// const popular = Array.isArray(properties) ? properties.slice(0, 6) : [];
+ const [property, setProperty] = useState([]);
+
+  
+
+useEffect(() => {
+  fetch("https://home-nest-server-lilac.vercel.app/latest-homes")
+    .then((res) => res.json())
+    .then((data) => {
+      // Sort by createdAt or _id if available, then slice last 6
+      const sorted = Array.isArray(data)
+        ? [...data].reverse().slice(0, 6)
+        : [];
+      setProperty(sorted);
+    })
+    .catch((err) => console.error(err));
+}, []);
 
   return (
     <div className="container mx-auto mt-10 max-w-[1280px] px-4 md:py-20 py-90">
@@ -81,13 +98,18 @@ const popular = Array.isArray(properties) ? properties.slice(0, 6) : [];
         <h2 className="text-4xl font-bold mb-6 text-secondary text-center">
           Featured Properties
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {popular.map((p) => (
-           <PropertyCard key={p._id} skill={p}></PropertyCard>
-
-
-          ))}
-        </div>
+        
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {property.length > 0 ? (
+      property.map((p) => (
+        <PropertyCard key={p._id} skill={p}></PropertyCard>
+      ))
+    ) : (
+      <p className="text-center text-gray-500 col-span-full">
+        No properties available.
+      </p>
+    )}
+  </div>
 
         <div className="text-center mt-8">
           <Link to="/all-properties" className="btn btn-outline text-blue-600">
@@ -97,9 +119,9 @@ const popular = Array.isArray(properties) ? properties.slice(0, 6) : [];
 
       </section>
 
-      {/* 💡 How It Works */}
+     
      <section className="mt-20 bg-gradient-to-r from-purple-700 to-cyan-600 py-16 text-white" data-aos="fade-up">
-  <h2 className="text-4xl font-bold text-center mb-10">How It Works</h2>
+  <h2 className="text-4xl font-bold text-center mb-10">Why Choose Us</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
     {[
       { icon: <FaSearch />, title: "Browse Properties", desc: "Explore thousands of listings from verified owners." },
@@ -117,7 +139,7 @@ const popular = Array.isArray(properties) ? properties.slice(0, 6) : [];
 
 
 
-      {/* 🏆 Top Rated Agents */}
+      {/* Top Rated Agents */}
      <section className="mt-20 bg-gray-100 py-16" data-aos="fade-up">
   <h2 className="text-4xl font-bold text-center text-secondary mb-12">Top Rated Agents</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
