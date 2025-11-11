@@ -17,7 +17,7 @@ export default function AllProperties() {
 
     setLoading(true);
 
-    fetch(`https://home-nest-server.vercel.app/search?search=${searchText}`)
+    fetch(`https://home-nest-server-lilac.vercel.app/search?search=${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setProperties(data);
