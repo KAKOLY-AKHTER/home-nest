@@ -19,19 +19,15 @@ export default function Navbar() {
 
 
 
-   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  }
 
   const navLinks = (
     <>
@@ -83,7 +79,7 @@ export default function Navbar() {
   );
 
   return (
-    <header className="bg-white dark:bg-gray-900 dark:text-white shadow-md fixed top-0 left-0 w-full z-50">
+    <header className="bg-base-100 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto max-w-[1250px] flex items-center justify-between py-3 px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -97,9 +93,16 @@ export default function Navbar() {
         {/* Auth Buttons / Profile */}
         <div className="hidden md:flex items-center gap-3">
 
-           <button onClick={toggleTheme} className="text-2xl text-amber-600 dark:text-yellow-300">
-            {theme === "dark" ? <MdLightMode /> : <MdDarkMode />}
-          </button>
+            <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              className="toggle toggle-secondary"
+              onChange={(e) => handleTheme(e.target.checked)}
+              defaultChecked={theme === "dark"}
+            />
+            <span className="text-sm">{theme === "dark" ? "Dark" : "Light"}</span>
+          </label>
+
 
 
           {user ? (
