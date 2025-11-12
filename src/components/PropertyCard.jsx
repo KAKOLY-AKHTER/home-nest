@@ -33,8 +33,9 @@ export const PropertyCard = ({ skill }) => {
       </figure>
 
       <div className="p-4 space-y-2 relative z-0">
-        <h2 className="text-lg font-semibold text-pink-300">{propertyName}</h2>
-        <p className="text-sm bg-gradient-to-r from-black to-blue-300 bg-clip-text text-transparent line-clamp-2">{shortDescription}</p>
+        <h2 className="text-md font-semibold text-pink-300">{propertyName}</h2>
+        <p className="text-sm bg-gradient-to-r from-black to-blue-300 bg-clip-text text-transparent line-clamp-2">{shortDescription?.slice(0, 400)}...
+</p>
         <div className="flex justify-between text-xs bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
           {/* <span>By: {userName}</span> */}
           <span  className="text-pink-400 font-bold text-md">{new Date(createdAt).toLocaleDateString()}</span>

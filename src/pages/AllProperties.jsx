@@ -47,21 +47,21 @@ export default function AllProperties() {
         <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
           All Properties (<span className="text-pink-400">{properties.length}</span>)
         </h2>
-        <Link to="/" className="btn btn-outline bg-cyan-200 text-blue-800">Go to Home</Link>
+        <Link to="/" className="btn btn-outline  text-blue-600">Go to Home</Link>
       </div>
 
 
-      <form onSubmit={handleSearch} className="flex gap-2 justify-center mb-8">
+      <form onSubmit={handleSearch} className="flex gap-2 justify-center text-blue-600  mb-8">
         <input
           name="search"
           type="text"
           placeholder="Search by Property Name..."
           className="input input-bordered w-full max-w-xs"
         />
-        <button className="btn btn-secondary rounded-full">
+        <button className="btn bg-blue-500 text-white rounded-full">
           {loading ? "Searching..." : "Search"}
         </button>
-        <button type="button" onClick={handleReset} className="btn btn-outline">
+        <button type="button" onClick={handleReset} className="btn btn-outline text-red-500">
           Reset
         </button>
       </form>
