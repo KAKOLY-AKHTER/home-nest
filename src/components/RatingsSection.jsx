@@ -41,7 +41,9 @@ const RatingsSection = ({ propertyId, propertyName, propertyImage, user }) => {
       } else {
         toast.error("Failed to submit review.");
       }
+      window.location.reload()
     } catch (err) {
+
       console.error(err);
       toast.error("Something went wrong.");
     }
@@ -72,7 +74,7 @@ const RatingsSection = ({ propertyId, propertyName, propertyImage, user }) => {
         ></textarea>
         <button
           type="submit"
-          className="btn bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:from-pink-600 hover:to-purple-700"
+          className="  text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
         >
           Submit Review
         </button>

@@ -122,13 +122,13 @@ const PropertyDetails = () => {
                 <>
                   <Link
                     to={`/update-properties/${property._id}`}
-                    className="btn btn-primary rounded-full bg-gradient-to-r from-blue-500 to-green-600 text-white border-0 hover:from-blue-600 hover:to-green-700"
+                    className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
                   >
                     Update Property
                   </Link>
                   <button
                     onClick={handleDelete}
-                    className="btn btn-outline rounded-full border-gray-300 hover:border-red-500 hover:text-red-600"
+                    className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
                   >
                     Delete
                   </button>

@@ -112,7 +112,7 @@ useEffect(() => {
   </div>
 
         <div className="text-center mt-8">
-          <Link to="/all-properties" className="btn btn-outline text-blue-600">
+          <Link to="/all-properties" className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors">
             Show All Properties
           </Link>
         </div>

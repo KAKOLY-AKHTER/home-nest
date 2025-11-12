@@ -47,7 +47,7 @@ export default function AllProperties() {
         <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
           All Properties (<span className="text-pink-400">{properties.length}</span>)
         </h2>
-        <Link to="/" className="btn btn-outline  text-blue-600">Go to Home</Link>
+        <Link to="/" className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors">Go to Home</Link>
       </div>
 
 
@@ -61,7 +61,7 @@ export default function AllProperties() {
         <button className="btn bg-blue-500 text-white rounded-full">
           {loading ? "Searching..." : "Search"}
         </button>
-        <button type="button" onClick={handleReset} className="btn btn-outline text-red-500">
+        <button type="button" onClick={handleReset} className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors">
           Reset
         </button>
       </form>

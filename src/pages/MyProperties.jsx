@@ -123,21 +123,21 @@ const MyProperties = () => {
               <div className="flex justify-between items-center p-4 border-t">
                 <button
                   onClick={() => handleUpdate(p._id)}
-                  className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+                  className="text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
                 >
                   Update
                 </button>
 
                 <button
                   onClick={() => handleDelete(p._id)}
-                  className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
+                  className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
                 >
                   Delete
                 </button>
 
                 <Link
                   to={`/property-details/${p._id}`}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                  className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
                 >
                   View
                 </Link>

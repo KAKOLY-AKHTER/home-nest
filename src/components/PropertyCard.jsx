@@ -9,7 +9,6 @@ export const PropertyCard = ({ skill }) => {
     category,
     shortDescription,
     _id,
-   userName,
     createdAt,
     location,
     price,
@@ -19,7 +18,7 @@ export const PropertyCard = ({ skill }) => {
     <div className="relative  border border-white/30 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:border-white/50 hover:brightness-105  ">
       <figure className="h-52 overflow-hidden relative">
         <img
-          src={image}
+          src={image || "https://via.placeholder.com/400x300"}
           alt={propertyName}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
@@ -37,7 +36,7 @@ export const PropertyCard = ({ skill }) => {
         <p className="text-sm bg-gradient-to-r from-black to-blue-300 bg-clip-text text-transparent line-clamp-2">{shortDescription?.slice(0, 400)}...
 </p>
         <div className="flex justify-between text-xs bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-          {/* <span>By: {userName}</span> */}
+        
           <span  className="text-pink-400 font-bold text-md">{new Date(createdAt).toLocaleDateString()}</span>
            <span className="text-pink-400 font-bold text-lg">৳{price?.toLocaleString()}</span>
         </div>

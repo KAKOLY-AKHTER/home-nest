@@ -1,12 +1,12 @@
-import { use, useContext } from "react";
+import {  useContext } from "react";
 
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/AuthContext";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 const AddProperty = () => {
   const { user } = useContext(AuthContext);
-
+const navigate=useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,6 +39,7 @@ const AddProperty = () => {
       } else {
         toast.error("Failed to add property.");
       }
+      navigate('/my-properties')
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong.");
@@ -154,12 +155,12 @@ const AddProperty = () => {
           </div>
 
           {/* Submit Button */}
-          <Link to="/my-properties"
+          <button 
             type="submit"
-            className="btn w-full text-white mt-6 rounded-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
+            className="w-full block text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
           >
             Add Property
-          </Link>
+          </button>
         </form>
       </div>
     </div>
