@@ -6,8 +6,6 @@ import { AuthContext } from "../context/AuthContext";
 import RatingsSection from "../components/RatingsSection";
 import PropertyReviews from "../components/PropertyReview";
 
-
-
 const PropertyDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -111,10 +109,10 @@ const PropertyDetails = () => {
                   ? `${property.userName} (${property.userEmail})`
                   : property.userEmail}
               </p>
-              {property.postedDate && (
+              {property.createdAt && (
                 <p>
-                  <strong>Posted on:</strong>{" "}
-                  {new Date(property.postedDate).toLocaleDateString()}
+                  <strong>Posted by:</strong>{" "}
+                  {new Date(property.createdAt).toLocaleDateString()}
                 </p>
               )}
             </div>
@@ -134,10 +132,11 @@ const PropertyDetails = () => {
                   >
                     Delete
                   </button>
+
                 </>
               )}
-              <button className="btn btn-secondary rounded-full">Contact Seller</button>
-            </div>
+             
+            </div> 
 
           </div>
         </div>

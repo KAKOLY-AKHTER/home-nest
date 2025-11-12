@@ -1,15 +1,19 @@
+
+
+
+
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { PropertyCard } from "../components/PropertyCard";
-import { Link } from "react-router";
-import { FaEdit, FaInfoCircle, FaMapMarkerAlt, FaMoneyBillWave, FaTag, FaTrashAlt } from "react-icons/fa";
-
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyProperties = () => {
   const { user } = useContext(AuthContext);
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
+  // 🔹 Fetch user-specific properties
   useEffect(() => {
     if (!user?.email || !user?.accessToken) return;
 
@@ -20,8 +24,6 @@ const MyProperties = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
         setProperties(data);
         setLoading(false);
       })
@@ -31,31 +33,42 @@ const MyProperties = () => {
       });
   }, [user]);
 
-
-  // ✏️ Update handler
+  // 📝 Update handler (navigate to update page)
   const handleUpdate = (id) => {
-    window.location.href = `/update-property/${id}`;
+    navigate(`/update-properties/${id}`);
   };
 
-  // 🗑️ Delete handler
+  // 🗑️ Delete handler (SweetAlert confirmation)
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this property?");
-    if (!confirmDelete) return;
-
-    fetch(`https://home-nest-server-lilac.vercel.app/homes/${id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.success && result.result.deletedCount > 0) {
-          setProperties((prev) => prev.filter((p) => p._id !== id));
-        }
-      })
-      .catch((err) => console.error("Delete failed:", err));
-  }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This property will be permanently deleted!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://home-nest-server-lilac.vercel.app/homes/${id}`, {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.success || result.result?.deletedCount > 0) {
+              setProperties((prev) => prev.filter((p) => p._id !== id));
+              Swal.fire("Deleted!", "Your property has been deleted.", "success");
+            }
+          })
+          .catch(() => {
+            Swal.fire("Error!", "Failed to delete the property.", "error");
+          });
+      }
+    });
+  };
 
   if (loading) {
     return <div className="text-center py-10 text-lg font-medium">Please wait... Loading your properties...</div>;
@@ -64,42 +77,13 @@ const MyProperties = () => {
   return (
     <div className="px-4 py-6 md:mt-30 mt-90 mx-auto max-w-[1250px]">
       <h2 className="text-3xl font-bold mb-6 text-center text-secondary">My Property Listings</h2>
+
       {properties.length === 0 ? (
         <div className="text-center text-gray-500">You haven't added any properties yet.</div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {properties.map((p) => (
-            // <div key={p._id} className="border rounded-xl shadow-md p-4 space-y-2 bg-white">
-            //   <h3 className="text-xl font-bold text-blue-600">{p.propertyName}</h3>
-            //   <p className="text-sm text-gray-600">Category: {p.category}</p>
-            //   <p className="text-sm text-gray-600">Location: {p.location}</p>
-            //   <p className="text-sm text-gray-600">Price: ৳{p.price?.toLocaleString()}</p>
-            //   <p className="text-xs text-gray-500">Posted: {new Date(p.createdAt).toLocaleDateString()}</p>
-
-            //   <div className="flex justify-between mt-4">
-            //     <button
-            //       onClick={() => handleUpdate(p._id)}
-            //       className="btn btn-sm bg-yellow-500 text-white hover:bg-yellow-600"
-            //     >
-            //       Update
-            //     </button>
-            //     <button
-            //       onClick={() => handleDelete(p._id)}
-            //       className="btn btn-sm bg-red-500 text-white hover:bg-red-600"
-            //     >
-            //       Delete
-            //     </button>
-            //     <Link
-            //       to={`/property-details/${p._id}`}
-            //       className="btn btn-sm bg-blue-600 text-white hover:bg-blue-700"
-            //     >
-            //       View Details
-            //     </Link>
-            //   </div>
-            // </div>
-
-
- <div
+            <div
               key={p._id}
               className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
@@ -127,11 +111,11 @@ const MyProperties = () => {
                   <span className="font-medium">Location:</span> {p.location}
                 </p>
                 <p className="text-sm text-gray-600">
-                  <span className="font-medium">Price:</span> ৳
-                  {p.price?.toLocaleString()}
+                  <span className="font-medium">Price:</span> ৳{p.price?.toLocaleString()}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
-                  Posted on: {new Date(p.createdAt).toLocaleDateString()}
+                  <span className="font-medium">Posted on:</span>{" "}
+                  {new Date(p.postedDate || p.createdAt).toLocaleDateString()}
                 </p>
               </div>
 
@@ -160,7 +144,6 @@ const MyProperties = () => {
               </div>
             </div>
           ))}
-
         </div>
       )}
     </div>

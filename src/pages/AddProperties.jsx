@@ -2,6 +2,7 @@ import { use, useContext } from "react";
 
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router";
 
 const AddProperty = () => {
   const { user } = useContext(AuthContext);
@@ -153,12 +154,12 @@ const AddProperty = () => {
           </div>
 
           {/* Submit Button */}
-          <button
+          <Link to="/my-properties"
             type="submit"
             className="btn w-full text-white mt-6 rounded-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
           >
             Add Property
-          </button>
+          </Link>
         </form>
       </div>
     </div>

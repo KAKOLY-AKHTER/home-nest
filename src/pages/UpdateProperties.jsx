@@ -1,5 +1,5 @@
 import {  useContext, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/AuthContext";
@@ -12,6 +12,9 @@ const UpdateProperties = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+
+        if (!user?.accessToken) return;
+
     fetch(`https://home-nest-server-lilac.vercel.app/homes/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
@@ -73,7 +76,7 @@ const UpdateProperties = () => {
       });
   };
 
-  if (loading) {
+  if (loading || !property) {
     return <div className="text-center py-10 text-lg font-medium">Loading property details...</div>;
   }
 
@@ -86,7 +89,7 @@ const UpdateProperties = () => {
           <input
             type="text"
             name="propertyName"
-            defaultValue={property.propertyName}
+            defaultValue={property?.propertyName || ""}
             required
             className="input w-full rounded-full"
           />
@@ -96,7 +99,7 @@ const UpdateProperties = () => {
           <label className="label font-medium">Description</label>
           <textarea
             name="shortDescription"
-            defaultValue={property.shortDescription}
+            defaultValue={property?.shortDescription || ""}
             required
             rows="3"
             className="textarea w-full rounded-2xl h-[150px]"
@@ -107,7 +110,7 @@ const UpdateProperties = () => {
           <label className="label font-medium">Category</label>
           <select
             name="category"
-            defaultValue={property.category}
+            defaultValue={property?.category || "rent"}
             required
             className="select w-full rounded-full"
           >
@@ -126,7 +129,7 @@ const UpdateProperties = () => {
           <input
             type="number"
             name="price"
-            defaultValue={property.price}
+            defaultValue={property?.price || ""}
             required
             className="input w-full rounded-full"
           />
@@ -137,7 +140,7 @@ const UpdateProperties = () => {
           <input
             type="text"
             name="location"
-            defaultValue={property.location}
+            defaultValue={property?.location || ""}
             required
             className="input w-full rounded-full"
           />
@@ -148,7 +151,7 @@ const UpdateProperties = () => {
           <input
             type="url"
             name="image"
-            defaultValue={property.image}
+            defaultValue={property?.image || ""}
             required
             className="input w-full rounded-full"
           />
@@ -159,7 +162,7 @@ const UpdateProperties = () => {
             <label className="label font-medium">User Email</label>
             <input
               type="email"
-              value={user.email}
+              value={user?.email || ""}
               readOnly
               className="input w-full rounded-full"
             />
@@ -168,7 +171,7 @@ const UpdateProperties = () => {
             <label className="label font-medium">User Name</label>
             <input
               type="text"
-              value={user.displayName}
+              value={user?.displayName || "anonymous"}
               readOnly
               className="input w-full rounded-full"
             />
@@ -183,6 +186,7 @@ const UpdateProperties = () => {
         >
           Update Property
         </button>
+        
       </form>
     </div>
   );
