@@ -79,6 +79,9 @@ const PropertyDetails = () => {
             />
           </div>
 
+
+          
+
           <div className="flex flex-col justify-center space-y-4 w-full md:w-1/2">
             <h1 className="text-3xl md:text-4xl font-bold text-secondary">
               {property.propertyName}
@@ -97,8 +100,24 @@ const PropertyDetails = () => {
             </div>
 
             <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-              {property.shortDescription}
+              {property.description || property.shortDescription}
             </p>
+
+
+            <div className="mt-4 text-sm text-gray-600 space-y-1">
+              <p>
+                <strong>Posted by:</strong>{" "}
+                {property.userName
+                  ? `${property.userName} (${property.userEmail})`
+                  : property.userEmail}
+              </p>
+              {property.postedDate && (
+                <p>
+                  <strong>Posted on:</strong>{" "}
+                  {new Date(property.postedDate).toLocaleDateString()}
+                </p>
+              )}
+            </div>
 
             <div className="flex gap-3 mt-6 flex-wrap">
               {user?.email === property.userEmail && (

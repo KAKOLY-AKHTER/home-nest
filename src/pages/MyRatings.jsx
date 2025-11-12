@@ -51,6 +51,17 @@ const MyRatings = () => {
               />
               <div>
                 <h3 className="text-lg font-semibold text-sky-600">{rating.propertyName}</h3>
+
+                 {/* Reviewer Name */}
+                {rating.reviewerName && (
+                  <p className="text-sm text-gray-600">
+                    Reviewed by: {rating.reviewerName}
+                  </p>
+                )}
+
+
+
+
                 <div className="flex items-center gap-1 mt-1">
                   {[...Array(5)].map((_, i) => (
                     <FaStar
