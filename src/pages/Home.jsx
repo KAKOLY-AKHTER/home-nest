@@ -43,7 +43,7 @@ useEffect(() => {
         {/* Left: Text + Swiper text */}
         <div className="w-full md:w-1/2 text-center md:text-left">
           <h2 className="font-bold leading-tight">
-            <span className="text-4xl md:text-6xl text-secondary">Find &</span>
+            <span className="text-4xl md:text-6xl text-[#ff6501]">Find &</span>
             <br />
             <span className="text-4xl md:text-6xl text-blue-600">
               Invest Smartly
