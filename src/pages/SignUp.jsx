@@ -48,7 +48,7 @@ export default function SignUp() {
 
   return (
     <div className="container mx-auto p-6 max-w-md md:py-30 py-70 ">
-      <h2 className="text-2xl font-bold mb-4">Signup</h2>
+      <h2 className="text-2xl font-bold text-secondary mb-4">Signup</h2>
       <form onSubmit={handleSubmit} className="space-y-3 border-2 rounded-xl p-5 shadow-2xl">
         <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required className="input input-bordered w-full" />
         <input value={photo} onChange={(e) => setPhoto(e.target.value)} placeholder="Photo URL" required className="input input-bordered w-full" />

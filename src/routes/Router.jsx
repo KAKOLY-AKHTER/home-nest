@@ -77,15 +77,17 @@ export const router = createBrowserRouter([
          
       },
 
-
-     
-    ],
-  },
-  { path: "/login", element:<Login></Login> },
+      { path: "/login", element:<Login></Login> },
   { path: "/signup", element: <SignUp /> },
 { path: "/terms", element: <Terms></Terms> },
 
 
   { path: "*", element: <NotFoundPage /> }, 
 
+
+
+     
+    ],
+  },
+  
 ]);
