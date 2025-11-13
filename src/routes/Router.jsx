@@ -12,6 +12,7 @@ import PrivateRoute from "../context/PrivateRoute";
 import NotFoundPage from "../pages/NotFound";
 import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
+import Terms from "../components/Terms";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +83,7 @@ export const router = createBrowserRouter([
   },
   { path: "/login", element:<Login></Login> },
   { path: "/signup", element: <SignUp /> },
+{ path: "/terms", element: <Terms></Terms> },
 
 
   { path: "*", element: <NotFoundPage /> }, 

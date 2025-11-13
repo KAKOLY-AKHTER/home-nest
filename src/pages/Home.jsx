@@ -120,7 +120,7 @@ useEffect(() => {
       </section>
 
      
-     <section className="mt-20 bg-gradient-to-r from-purple-700 to-cyan-600 py-16 text-white" data-aos="fade-up">
+     <section className="mt-20 bg-gradient-to-r from-purple-300 to-cyan-300 py-16 text-secondary" data-aos="fade-up">
   <h2 className="text-4xl font-bold text-center mb-10">Why Choose Us</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
     {[
@@ -162,7 +162,7 @@ useEffect(() => {
 
 
       {/* 📅 Upcoming Open Houses */}
-     <section className="mt-20 bg-gradient-to-r from-cyan-600 to-blue-500 py-16 text-white" data-aos="fade-up">
+     <section className="mt-20 bg-gradient-to-r from-cyan-300 to-blue-300 py-16 text-secondary" data-aos="fade-up">
   <h2 className="text-4xl font-bold text-center mb-10">Upcoming Open Houses</h2>
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
     {[

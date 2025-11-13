@@ -74,7 +74,7 @@ const MyRatings = () => {
                   <p className="text-sm text-sky-400 mt-2 italic">"{rating.comment}"</p>
                 )}
                 <p className="text-xs text-blue-700 mt-2">
-                  Rated on: {new Date(rating.createdAt).toLocaleDateString()}
+                Review Date: {new Date(rating.createdAt).toLocaleDateString()}
                 </p>
               </div>
             </div>

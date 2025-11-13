@@ -111,7 +111,7 @@ const PropertyDetails = () => {
               </p>
               {property.createdAt && (
                 <p>
-                  <strong>Posted by:</strong>{" "}
+                  <strong>Posted date:</strong>{" "}
                   {new Date(property.createdAt).toLocaleDateString()}
                 </p>
               )}
