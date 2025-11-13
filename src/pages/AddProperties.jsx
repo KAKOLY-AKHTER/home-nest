@@ -47,7 +47,7 @@ const navigate=useNavigate();
   };
 
   return (
-    <div className="card border border-gray-200 bg-base-100 w-full  max-w-2xl mx-auto shadow-2xl rounded-lg md:mt-30 mt-90">
+    <div className="card border border-gray-200 bg-base-100 w-full  max-w-2xl mx-auto shadow-2xl rounded-lg md:mt-30 mt-40">
       <div className="card-body bg-sky-100 p-6 ">
         <h2 className=" text-center mb-6 text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent ">Add New Property</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

@@ -75,7 +75,7 @@ const MyProperties = () => {
   }
 
   return (
-    <div className="px-4 py-6 md:mt-30 mt-90 mx-auto max-w-[1250px]">
+    <div className="px-4 py-6 md:mt-30 mt-40 mx-auto max-w-[1250px]">
       <h2 className="text-3xl font-bold mb-6 text-center text-secondary">My Property Listings</h2>
 
       {properties.length === 0 ? (

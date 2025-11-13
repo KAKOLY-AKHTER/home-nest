@@ -57,7 +57,7 @@ export default function AllProperties() {
 
 
   return (
-    <div className="container mx-auto max-w-[1280px] md:py-30 py-20 px-4">
+    <div className="container mx-auto max-w-[1280px] md:py-30 py-40 px-4">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
           All Properties (<span className="text-pink-400">{properties.length}</span>)

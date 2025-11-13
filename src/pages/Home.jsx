@@ -37,7 +37,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className="container mx-auto mt-10 max-w-[1280px] px-4 md:py-20 py-90">
+    <div className="container mx-auto mt-10 max-w-[1280px] px-4 md:py-20 py-30">
       {/*  Hero Banner Section */}
       <section className="flex flex-col md:flex-row items-center justify-between bg-white p-6 rounded-lg shadow-md">
         {/* Left: Text + Swiper text */}
