@@ -13,7 +13,7 @@ const MyProperties = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // 🔹 Fetch user-specific properties
+
   useEffect(() => {
     if (!user?.email || !user?.accessToken) return;
 
@@ -33,12 +33,12 @@ const MyProperties = () => {
       });
   }, [user]);
 
-  // 📝 Update handler (navigate to update page)
+
   const handleUpdate = (id) => {
     navigate(`/update-properties/${id}`);
   };
 
-  // 🗑️ Delete handler (SweetAlert confirmation)
+ 
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -87,7 +87,7 @@ const MyProperties = () => {
               key={p._id}
               className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
-              {/* Property Image */}
+             
               <div className="h-48 w-full overflow-hidden">
                 <img
                   src={
@@ -99,7 +99,7 @@ const MyProperties = () => {
                 />
               </div>
 
-              {/* Property Info */}
+          
               <div className="p-5 space-y-2">
                 <h3 className="text-xl font-semibold text-gray-800">
                   {p.propertyName}
@@ -119,7 +119,7 @@ const MyProperties = () => {
                 </p>
               </div>
 
-              {/* Buttons */}
+          
               <div className="flex justify-between items-center p-4 border-t">
                 <button
                   onClick={() => handleUpdate(p._id)}

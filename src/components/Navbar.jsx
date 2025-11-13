@@ -54,7 +54,7 @@ export default function Navbar() {
             <NavLink
              onClick={() => setMenuOpen(false)} 
              to="/add-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
-              <MdAddHome className="inline mr-1" /> Add Property
+              <MdAddHome className="inline mr-1" /> Add Properties
             </NavLink>
           </li>
 
@@ -90,7 +90,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-6 font-medium">{navLinks}</ul>
 
-        {/* Auth Buttons / Profile */}
+
         <div className="hidden md:flex items-center gap-3">
 
             <label className="flex items-center gap-2 cursor-pointer">

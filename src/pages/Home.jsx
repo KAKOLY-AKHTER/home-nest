@@ -38,7 +38,7 @@ useEffect(() => {
 
   return (
     <div className="container mx-auto mt-10 max-w-[1280px] px-4 md:py-20 py-90">
-      {/* 🌇 Hero Banner Section */}
+      {/*  Hero Banner Section */}
       <section className="flex flex-col md:flex-row items-center justify-between bg-white p-6 rounded-lg shadow-md">
         {/* Left: Text + Swiper text */}
         <div className="w-full md:w-1/2 text-center md:text-left">
@@ -93,7 +93,7 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* 🏡 Featured Properties */}
+      {/* Featured Properties */}
       <section className="mt-16">
         <h2 className="text-4xl font-bold mb-6 text-secondary text-center">
           Featured Properties
@@ -161,7 +161,7 @@ useEffect(() => {
 </section>
 
 
-      {/* 📅 Upcoming Open Houses */}
+      {/* Upcoming Open Houses */}
      <section className="mt-20 bg-gradient-to-r from-cyan-300 to-blue-300 py-16 text-secondary" data-aos="fade-up">
   <h2 className="text-4xl font-bold text-center mb-10">Upcoming Open Houses</h2>
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
@@ -178,7 +178,7 @@ useEffect(() => {
   </div>
 </section>
 
-      {/* 💬 Testimonials */}
+      {/*  Testimonials */}
      <section className="mt-20 bg-gray-50 py-20 px-6" data-aos="fade-up">
   <h2 className="text-4xl font-bold text-center text-secondary mb-12">What Our Clients Say</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

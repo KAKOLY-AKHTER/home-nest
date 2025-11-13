@@ -1,8 +1,5 @@
 
 
-
-
-
 import { useContext, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
@@ -52,7 +49,7 @@ const MyRatings = () => {
               <div>
                 <h3 className="text-lg font-semibold text-sky-600">{rating.propertyName}</h3>
 
-                 {/* Reviewer Name */}
+               
                 {rating.reviewerName && (
                   <p className="text-sm text-gray-600">
                     Reviewed by: {rating.reviewerName}
