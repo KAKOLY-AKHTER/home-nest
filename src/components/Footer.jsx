@@ -12,7 +12,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <img src="https://www.shutterstock.com/image-vector/real-estate-logo-template-home-260nw-2485751935.jpg" alt="HomeNest Logo" className="w-14 h-14 rounded-full" />
-            <h2 className="text-2xl font-bold text-blue-600">HomeNest</h2>
+            <h2 className="text-2xl font-bold text-blue-600">Home <span className="text-orange-600">Nest</span></h2>
           </div>
           <p className="text-sm leading-relaxed">
             HomeNest is your trusted real estate partner — helping you buy, rent,

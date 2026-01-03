@@ -34,7 +34,7 @@ export default function Navbar() {
       <li>
         <NavLink
          onClick={() => setMenuOpen(false)} 
-         to="/" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+         to="/" className={({ isActive }) => isActive ? "text-blue-800  underline  font-semibold" : "text-white"}>
           <FaHome className="inline mr-1" /> Home
         </NavLink>
       </li>
@@ -43,17 +43,30 @@ export default function Navbar() {
         <NavLink 
         
          onClick={() => setMenuOpen(false)} 
-         to="/all-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+         to="/all-properties" className={({ isActive }) => isActive ?   "text-blue-800  underline    font-semibold" : "text-white"}>
           <RiBuilding2Line className="inline mr-1" /> All Properties
         </NavLink>
       </li>
 
+      
+
       {user && (
         <>
+
           <li>
             <NavLink
              onClick={() => setMenuOpen(false)} 
-             to="/add-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+             to="/dashboard" className={({ isActive }) => isActive ?  " underline  text-blue-800 font-semibold" : "text-white"}>
+              <FaRegStar className="inline mr-1" /> Dashboard
+            </NavLink>
+          </li>
+          <li>
+
+
+
+            <NavLink
+             onClick={() => setMenuOpen(false)} 
+             to="/add-properties" className={({ isActive }) => isActive ?  " underline text-blue-800 font-semibold" : "text-white"}>
               <MdAddHome className="inline mr-1" /> Add Properties
             </NavLink>
           </li>
@@ -61,7 +74,7 @@ export default function Navbar() {
           <li>
             <NavLink
              onClick={() => setMenuOpen(false)} 
-             to="/my-properties" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+             to="/my-properties" className={({ isActive }) => isActive ?  "text-blue-800   underline   font-semibold" : "text-white"}>
               <MdOutlineRealEstateAgent className="inline mr-1" /> My Properties
             </NavLink>
           </li>
@@ -69,23 +82,26 @@ export default function Navbar() {
           <li>
             <NavLink
              onClick={() => setMenuOpen(false)} 
-             to="/my-ratings" className={({ isActive }) => isActive ? "text-blue-600 font-semibold" : "hover:text-blue-500"}>
+             to="/my-ratings" className={({ isActive }) => isActive ?  "text-blue-800   underline    font-semibold" : "text-white"}>
               <FaRegStar className="inline mr-1" /> My Ratings
             </NavLink>
           </li>
+
+        
         </>
       )}
     </>
   );
 
   return (
-    <header className="bg-base-100 shadow-md fixed top-0 left-0 w-full z-50">
+    <header className="bg-base-100 bg-gradient-to-r from-blue-600  to-sky-400 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto max-w-[1250px] flex items-center justify-between py-3 px-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img className="h-20 w-20 rounded-full" src="https://www.shutterstock.com/image-vector/real-estate-logo-template-home-260nw-2485751935.jpg" alt="HomeNest Logo" />
-          <span className="font-bold text-lg text-blue-600">HomeNest</span>
+        <Link to="/" className="flex gap-2 items-center">
+          <img className="h-18 w-18 rounded-full" src="https://www.shutterstock.com/image-vector/real-estate-logo-template-home-260nw-2485751935.jpg" alt="HomeNest Logo" />
+          <span className="font-bold text-xl text-white">Home <span className="text-[#ff6501] font-extrabold">Nest</span></span>
         </Link>
+      
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-6 font-medium">{navLinks}</ul>
@@ -93,7 +109,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
 
-            <label className="flex items-center gap-2 cursor-pointer">
+            <label className="flex items-center text-white gap-2 cursor-pointer">
             <input
               type="checkbox"
               className="toggle toggle-secondary"
@@ -130,13 +146,13 @@ export default function Navbar() {
             <div className="flex gap-2">
               <Link
                 to="/login"
-                className="btn btn-outline btn-sm border-blue-500 text-blue-600 hover:bg-blue-600 hover:text-white"
+                className="btn btn-outline btn-sm border-blue-500 text-white hover:text-blue-400"
               >
                 Login
               </Link>
               <Link
                 to="/signup"
-                className="btn btn-sm bg-blue-600 text-white hover:bg-blue-700"
+                className="btn btn-sm bg-blue-600 text-white hover:bg-blue-300"
               >
                 Register
               </Link>
@@ -190,7 +206,7 @@ export default function Navbar() {
               <div className="flex gap-2 mt-2">
                 <Link
                   to="/login"
-                  className="btn btn-outline btn-sm border-blue-500 text-blue-600 hover:bg-blue-600 hover:text-white w-1/2"
+                  className="btn btn-outline btn-sm border-blue-500 text-white hover:text-blue-500 w-1/2"
                 >
                   Login
                 </Link>

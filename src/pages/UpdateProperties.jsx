@@ -82,7 +82,7 @@ const UpdateProperties = () => {
 
   return (
     <div className=" px-4 py-6 card border bg-sky-200 border-gray-200  w-full  max-w-2xl mx-auto shadow-2xl rounded-lg mt-30">
-      <h2 className="text-2xl font-bold mb-6 text-center">Update Property</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-[#094ee5] ">Update Property</h2>
       <form onSubmit={handleUpdate} className="space-y-4 ">
         <div>
           <label className="label font-medium">Property Name</label>

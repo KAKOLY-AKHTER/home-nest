@@ -47,9 +47,9 @@ const navigate=useNavigate();
   };
 
   return (
-    <div className="card border border-gray-200 bg-base-100 w-full  max-w-2xl mx-auto shadow-2xl rounded-lg md:mt-30 mt-40">
+    <div className="card border p-3 border-gray-200 bg-base-100 w-full  max-w-2xl mx-auto shadow-2xl rounded-lg md:mt-30 mt-40">
       <div className="card-body bg-sky-100 p-6 ">
-        <h2 className=" text-center mb-6 text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent ">Add New Property</h2>
+        <h2 className=" text-center mb-6 text-4xl font-bold text-[#094ee5]  ">Add New Property</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Property Name */}
           <div>
@@ -157,7 +157,7 @@ const navigate=useNavigate();
           {/* Submit Button */}
           <button 
             type="submit"
-            className="w-full block text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
+            className="w-full block text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-500 hover:to-orange-400  transition-colors"
           >
             Add Property
           </button>

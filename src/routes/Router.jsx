@@ -13,6 +13,8 @@ import NotFoundPage from "../pages/NotFound";
 import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import Terms from "../components/Terms";
+import Dashboard from "../components/Dashboard";
+
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +31,11 @@ export const router = createBrowserRouter([
         element:<AllProperties></AllProperties>,
         loader: () => fetch('https://home-nest-server-lilac.vercel.app/homes')
       },
+      {
+        path: "/dashboard",
+        element:<Dashboard></Dashboard>,
+      
+      },
       
       {
         path: "/add-properties",
@@ -41,9 +48,9 @@ export const router = createBrowserRouter([
       {
         path: "/property-details/:id",
         element: (
-          <PrivateRoute>
+          
             <PropertyDetails></PropertyDetails>
-          </PrivateRoute>
+          
         ),
       },
 
@@ -59,9 +66,9 @@ export const router = createBrowserRouter([
        {
         path: "/my-ratings",
         element: (
-          <PrivateRoute>
+          
         <MyRatings></MyRatings>
-          </PrivateRoute>
+        
         ),
       },
       

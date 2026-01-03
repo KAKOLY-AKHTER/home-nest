@@ -50,8 +50,8 @@ const RatingsSection = ({ propertyId, propertyName, propertyImage, user }) => {
   };
 
   return (
-    <div className="mt-10 bg-sky-100 p-6 rounded-xl shadow-2xl">
-      <h3 className="text-2xl font-bold mb-4 text-secondary">Rate & Review This Property</h3>
+    <div className="mt-10 bg-slate-100 p-6 rounded-xl shadow-2xl">
+      <h3 className="text-2xl font-bold mb-4 text-black">Rate & Review This Property</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex gap-2">
           {[...Array(5)].map((_, i) => (

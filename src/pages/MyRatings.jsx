@@ -34,22 +34,25 @@ const MyRatings = () => {
 
   return (
     <div className="px-4 py-6 md:mt-30 mt-30 max-w-[1250px] mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-center text-secondary">My Property Ratings</h2>
+      <h2 className="text-3xl font-bold mb-10 text-center text-[#094ee5] ">My Property Ratings</h2>
       {ratings.length === 0 ? (
         <div className="text-center text-gray-500">You haven't rated any properties yet.</div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {ratings.map((rating) => (
-            <div key={rating._id} className=" rounded-lg shadow-2xl bg-sky-100 border-blue-600 p-4  flex flex-col gap-3">
-              <img
+            <div key={rating._id} className="relative  border border-white/30 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 bg-white hover:scale-[1.03] hover:border-white/50 hover:brightness-105 ">
+              <figure className="h-52 overflow-hidden relative">
+                <img 
                 src={rating.propertyImage || "/placeholder.jpg"}
                 alt={rating.propertyName}
-                className="w-full h-40 object-cover rounded-md"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
               />
-              <div>
-                <h3 className="text-lg font-semibold text-sky-600">{rating.propertyName}</h3>
 
-               
+              </figure>
+              
+              <div className=" p-4 space-y-2 relative z-0">
+                <h3 className="text-md font-bold text-black ">{rating.propertyName}</h3>
+
                 {rating.reviewerName && (
                   <p className="text-sm text-gray-600">
                     Reviewed by: {rating.reviewerName}
@@ -70,7 +73,7 @@ const MyRatings = () => {
                 {rating.comment && (
                   <p className="text-sm text-sky-400 mt-2 italic">"{rating.comment}"</p>
                 )}
-                <p className="text-xs text-blue-700 mt-2">
+                <p className="text-xs text-black  mt-2">
                 Review Date: {new Date(rating.createdAt).toLocaleDateString()}
                 </p>
               </div>

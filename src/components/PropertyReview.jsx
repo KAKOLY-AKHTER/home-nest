@@ -27,8 +27,8 @@ const PropertyReviews = ({ propertyId }) => {
   }
 
   return (
-    <div className="mt-10 bg-sky-100 p-6 rounded-xl shadow-md">
-      <h3 className="text-2xl font-bold mb-4 text-secondary ">User Reviews</h3>
+    <div className="mt-10 bg-slate-100 p-6 rounded-xl shadow-md">
+      <h3 className="text-2xl font-bold mb-4 text-black ">User Reviews</h3>
       <div className="space-y-6">
         {reviews.map((review) => (
           <div key={review._id} className=" bg-base-100 p-4 rounded-lg shadow-sm">

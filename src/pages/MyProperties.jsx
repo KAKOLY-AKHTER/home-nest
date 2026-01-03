@@ -2,6 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,9 +35,9 @@ const MyProperties = () => {
     if (!user?.email || !user?.accessToken) return;
 
     fetch(`https://home-nest-server-lilac.vercel.app/my-properties?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
+      // headers: {
+      //   authorization: `Bearer ${user.accessToken}`,
+      // },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -76,7 +93,7 @@ const MyProperties = () => {
 
   return (
     <div className="px-4 py-6 md:mt-30 mt-40 mx-auto max-w-[1250px]">
-      <h2 className="text-3xl font-bold mb-6 text-center text-secondary">My Property Listings</h2>
+      <h2 className="text-3xl font-bold mb-10 text-center text-[#094ee5] ">My Property Listings</h2>
 
       {properties.length === 0 ? (
         <div className="text-center text-gray-500">You haven't added any properties yet.</div>
@@ -123,21 +140,21 @@ const MyProperties = () => {
               <div className="flex justify-between items-center p-4 border-t">
                 <button
                   onClick={() => handleUpdate(p._id)}
-                  className="text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
+                  className="text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-500 hover:to-orange-400  transition-colors"
                 >
                   Update
                 </button>
 
                 <button
                   onClick={() => handleDelete(p._id)}
-                  className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
+                  className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-500 hover:to-orange-400  transition-colors"
                 >
                   Delete
                 </button>
 
                 <Link
                   to={`/property-details/${p._id}`}
-                  className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-600 hover:to-pink-600 transition-colors"
+                  className=" text-center px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-sm rounded-full hover:from-red-500 hover:to-orange-400  transition-colors"
                 >
                   View
                 </Link>
