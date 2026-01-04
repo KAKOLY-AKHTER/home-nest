@@ -39,7 +39,7 @@ useEffect(() => {
     .then((data) => {
       // Sort by createdAt or _id if available, then slice last 6
       const sorted = Array.isArray(data)
-        ? [...data].reverse().slice(0, 6)
+        ? [...data].reverse().slice(0, 8)
         : [];
       setProperty(sorted);
     })

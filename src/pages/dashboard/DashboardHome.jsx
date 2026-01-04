@@ -144,7 +144,7 @@ const DashboardHome = () => {
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link
-            to="/dashboard/add-property"
+            to="/dashboard/add-properties"
             className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition-all border border-gray-200 hover:border-blue-300"
           >
             <div className="flex items-center gap-4">

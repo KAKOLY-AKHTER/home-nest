@@ -49,14 +49,7 @@ export default function Navbar() {
       </li>
 
 
-       <li>
-            <NavLink
-             onClick={() => setMenuOpen(false)} 
-             to="/dashboard/my-properties" className={({ isActive }) => isActive ?  "text-blue-800   underline   font-semibold" : "text-white"}>
-              <MdOutlineRealEstateAgent className="inline mr-1" /> My Properties
-            </NavLink>
-          </li>
-
+     
            <li>
         <NavLink
           onClick={() => setMenuOpen(false)}
