@@ -90,7 +90,7 @@ const Testimonial = () => {
         <div className="flex items-center gap-4 mb-6">
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&auto=format&fit=crop&q=80" 
+              src="https://img.freepik.com/premium-photo/portrait-black-woman-business-leader-crossed-arms-confident-pride-female-entrepreneur-corporate-executive-empowered-girl-with-smile-happy-leadership-with-vision-startup-company_590464-98960.jpg?semt=ais_hybrid&w=740&q=80" 
               alt="Rima Akter"
               className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg"
             />

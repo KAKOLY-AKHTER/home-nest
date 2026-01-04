@@ -338,7 +338,7 @@ useEffect(() => {
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white">
             <img 
-              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&auto=format&fit=crop&q=80" 
+              src="https://img.freepik.com/premium-photo/personal-professional-success-is-my-daily-motivation-studio-portrait-attractive-confident-young-businesswoman-posing-against-dark-blue-background_590464-67340.jpg?semt=ais_hybrid&w=740&q=80" 
               alt="Happy Client"
               className="w-full h-full object-cover"
             />
