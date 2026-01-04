@@ -228,7 +228,7 @@ const DashboardLayout = () => {
                         <FaHome /> Dashboard
                       </Link>
                       <Link 
-                        to="/dashboard/settings" 
+                        to="/" 
                         className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
                         onClick={() => setProfileOpen(false)}
                       >
