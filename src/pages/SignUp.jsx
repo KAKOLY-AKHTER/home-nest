@@ -23,7 +23,7 @@ const [demoFilled, setDemoFilled] = useState(false);
 
 
    const demoUser = {
-    email: "kakolydemo12@gamil.com",
+    email: "kakolydemo1@gamil.com",
     password: "KAde12@k",
     name: "Kakoly Akhter",
     photo: "https://img.freepik.com/premium-vector/young-man-avatar-character-due-avatar-man-vector-icon-cartoon-illustration_1186924-4438.jpg?semt=ais_hybrid&w=740&q=80"
@@ -54,20 +54,6 @@ const handleDemoFill = (e) => {
     return errors;
   };
 
-// const handleFacebookLogin = async () => {
-//   try {
-//     const result = await signInWithPopup(auth, fbProvider);
-//     const user = result.user;
-//     const token = await user.getIdToken();
-
-//     toast.success("Logged in with Facebook");
-//     navigate("/") 
-//   } catch (err) {
-//     toast.error(err.message);
-//   }
-// };
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -85,26 +71,23 @@ const handleDemoFill = (e) => {
       return;
     }
 
-    try {
+   try {
       await registerWithEmail(email, password);
-      if (name || photo) {
-        await updateUserProfile({ displayName: name, photoURL: photo });
-      }
-      setSuccess("Account created successfully!");
-      
-      toast.success("Account created");
-     setTimeout(() => {
-  navigate("/");
-}, 1500);
 
+      await updateUserProfile({ displayName: name, photoURL: photo });
+
+      setSuccess("Account created successfully!");
+      toast.success("Account created");
+
+
+      navigate("/");
     } catch (err) {
       toast.error(err.message);
-    }
-    finally {
+    } finally {
       setLoading(false);
     }
-
   };
+
 
 
   return (
@@ -149,7 +132,7 @@ const handleDemoFill = (e) => {
   type="button"
   onClick={handleDemoFill}
   className="btn btn-success w-full mt-4"
-   disabled={demoFilled}
+  //  disabled={demoFilled}
 >
   🚀 Quick Demo Fill
 </button>

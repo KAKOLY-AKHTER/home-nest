@@ -24,7 +24,7 @@ export default function Login() {
 
 
   const demoUser ={
- email: "kakolydemo12@gamil.com",
+email: "kakolydemo1@gamil.com",
     password: "KAde12@k",
   }
   
