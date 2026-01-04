@@ -1,7 +1,7 @@
 import {  useContext } from "react";
 
 import toast from "react-hot-toast";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router";
 
 const AddProperty = () => {
@@ -39,7 +39,7 @@ const navigate=useNavigate();
       } else {
         toast.error("Failed to add property.");
       }
-      navigate('/my-properties')
+      navigate('/dashboard/my-properties')
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong.");
@@ -47,7 +47,7 @@ const navigate=useNavigate();
   };
 
   return (
-    <div className="card border p-3 border-gray-200 bg-base-100 w-full  max-w-2xl mx-auto shadow-2xl rounded-lg md:mt-30 mt-40">
+    <div className="card border p-3 border-gray-200 bg-base-100 w-full  max-w-2xl mx-auto shadow-2xl rounded-lg md:mt-10 mt-40">
       <div className="card-body bg-sky-100 p-6 ">
         <h2 className=" text-center mb-6 text-4xl font-bold text-[#094ee5]  ">Add New Property</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

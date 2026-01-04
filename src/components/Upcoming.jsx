@@ -20,7 +20,7 @@ const Upcoming = () => {
           OPEN HOUSE EVENTS
         </span>
       </div>
-      <h2 className="text-4xl md:text-5xl font-bold text-[#094ee5] mb-4">
+      <h2 className="text-4xl drop-shadow-xl md:text-5xl font-bold text-[#094ee5] mb-4">
         Upcoming Open Houses
       </h2>
       <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto px-2">

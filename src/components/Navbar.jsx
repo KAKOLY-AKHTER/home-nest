@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { FaHome, FaRegStar } from "react-icons/fa";
+import { FaDashcube, FaEnvelope, FaHome, FaInfoCircle, FaRegStar } from "react-icons/fa";
 import { MdAddHome, MdOutlineRealEstateAgent, MdMenu, MdClose, MdLightMode, MdDarkMode } from "react-icons/md";
 
 import { RiBuilding2Line } from "react-icons/ri";
@@ -48,44 +48,73 @@ export default function Navbar() {
         </NavLink>
       </li>
 
+
+       <li>
+            <NavLink
+             onClick={() => setMenuOpen(false)} 
+             to="/dashboard/my-properties" className={({ isActive }) => isActive ?  "text-blue-800   underline   font-semibold" : "text-white"}>
+              <MdOutlineRealEstateAgent className="inline mr-1" /> My Properties
+            </NavLink>
+          </li>
+
+           <li>
+        <NavLink
+          onClick={() => setMenuOpen(false)}
+          to="/about"
+          className={({ isActive }) => isActive ? "text-blue-800 underline font-semibold" : "text-white"}
+        >
+          <FaInfoCircle className="inline mr-1" /> About
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          onClick={() => setMenuOpen(false)}
+          to="/contact"
+          className={({ isActive }) => isActive ? "text-blue-800 underline font-semibold" : "text-white"}
+        >
+          <FaEnvelope className="inline mr-1" /> Contact
+        </NavLink>
+      </li>
+
       
 
       {user && (
         <>
 
-          <li>
+         <li>
             <NavLink
-             onClick={() => setMenuOpen(false)} 
-             to="/dashboard" className={({ isActive }) => isActive ?  " underline  text-blue-800 font-semibold" : "text-white"}>
-              <FaRegStar className="inline mr-1" /> Dashboard
+              onClick={() => setMenuOpen(false)}
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive ? "text-blue-800 underline font-semibold" : "text-white"
+              }
+            >
+              <FaDashcube className="inline mr-1"></FaDashcube> Dashboard
             </NavLink>
           </li>
-          <li>
 
 
+
+         
+           {/* <li>
 
             <NavLink
              onClick={() => setMenuOpen(false)} 
-             to="/add-properties" className={({ isActive }) => isActive ?  " underline text-blue-800 font-semibold" : "text-white"}>
+             to="/dashboard/add-properties" className={({ isActive }) => isActive ?  " underline text-blue-800 font-semibold" : "text-white"}>
               <MdAddHome className="inline mr-1" /> Add Properties
             </NavLink>
-          </li>
+          </li> */}
 
-          <li>
+         
+
+          {/* <li>
             <NavLink
              onClick={() => setMenuOpen(false)} 
-             to="/my-properties" className={({ isActive }) => isActive ?  "text-blue-800   underline   font-semibold" : "text-white"}>
-              <MdOutlineRealEstateAgent className="inline mr-1" /> My Properties
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-             onClick={() => setMenuOpen(false)} 
-             to="/my-ratings" className={({ isActive }) => isActive ?  "text-blue-800   underline    font-semibold" : "text-white"}>
+             to="/dashboard/my-ratings" className={({ isActive }) => isActive ?  "text-blue-800   underline    font-semibold" : "text-white"}>
               <FaRegStar className="inline mr-1" /> My Ratings
             </NavLink>
-          </li>
+          </li>  */}
 
         
         </>
@@ -94,11 +123,11 @@ export default function Navbar() {
   );
 
   return (
-    <header className="bg-base-100 bg-gradient-to-r from-blue-600  to-sky-400 shadow-md fixed top-0 left-0 w-full z-50">
+    <header className="bg-base-100 py-2 bg-gradient-to-r from-blue-600  to-sky-400 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto max-w-[1250px] flex items-center justify-between py-3 px-6">
         {/* Logo */}
         <Link to="/" className="flex gap-2 items-center">
-          <img className="h-18 w-18 rounded-full" src="https://www.shutterstock.com/image-vector/real-estate-logo-template-home-260nw-2485751935.jpg" alt="HomeNest Logo" />
+          <img className="h-10 w-10 rounded-full" src="https://www.shutterstock.com/image-vector/real-estate-logo-template-home-260nw-2485751935.jpg" alt="HomeNest Logo" />
           <span className="font-bold text-xl text-white">Home <span className="text-[#ff6501] font-extrabold">Nest</span></span>
         </Link>
       

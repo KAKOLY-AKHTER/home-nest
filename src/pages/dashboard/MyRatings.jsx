@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const MyRatings = () => {
   const { user } = useContext(AuthContext);
@@ -33,7 +33,7 @@ const MyRatings = () => {
   }
 
   return (
-    <div className="px-4 py-6 md:mt-30 mt-30 max-w-[1250px] mx-auto">
+    <div className="px-4 py-6 md:mt-10 mt-30 max-w-[1250px] mx-auto">
       <h2 className="text-3xl font-bold mb-10 text-center text-[#094ee5] ">My Property Ratings</h2>
       {ratings.length === 0 ? (
         <div className="text-center text-gray-500">You haven't rated any properties yet.</div>

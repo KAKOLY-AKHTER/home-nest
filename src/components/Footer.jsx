@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { MdEmail, MdPhone, MdLocationPin } from "react-icons/md";
+import { Link } from "react-router";
 
 export default function Footer() {
   return (
@@ -10,10 +11,10 @@ export default function Footer() {
 
         {/* Logo and About */}
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <img src="https://www.shutterstock.com/image-vector/real-estate-logo-template-home-260nw-2485751935.jpg" alt="HomeNest Logo" className="w-14 h-14 rounded-full" />
-            <h2 className="text-2xl font-bold text-blue-600">Home <span className="text-orange-600">Nest</span></h2>
-          </div>
+          <Link to="/"
+          className="flex items-center gap-2 mb-3">
+            <img src="https://www.shutterstock.com/image-vector/real-estate-logo-template-home-260nw-2485751935.jpg" alt="HomeNest Logo" className="w-10 h-10 rounded-full" />
+            <h2 className="text-2xl font-bold text-white">Home <span className="text-orange-600">Nest</span></h2></Link>
           <p className="text-sm leading-relaxed">
             HomeNest is your trusted real estate partner — helping you buy, rent,
             and sell properties easily. Explore the best deals in your desired
@@ -27,9 +28,9 @@ export default function Footer() {
           <ul className="space-y-2">
             <li><Link to="/" className="hover:text-blue-400">Home</Link></li>
             <li><Link to="/all-properties" className="hover:text-blue-400">All Properties</Link></li>
-            <li><Link to="/add-properties" className="hover:text-blue-400">Add Property</Link></li>
-            <li><Link to="/my-properties" className="hover:text-blue-400">My Properties</Link></li>
-            <li><Link to="/my-ratings" className="hover:text-blue-400">My Ratings</Link></li>
+            <li><Link to="/dashboard/add-properties" className="hover:text-blue-400">Add Property</Link></li>
+            <li><Link to="/dashboard/my-properties" className="hover:text-blue-400">My Properties</Link></li>
+            <li><Link to="/dashboard/my-ratings" className="hover:text-blue-400">My Ratings</Link></li>
           </ul>
         </div>
 

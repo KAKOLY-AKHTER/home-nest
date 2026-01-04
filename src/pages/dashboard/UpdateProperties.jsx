@@ -1,8 +1,14 @@
-import {  useContext, useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+// import {  useContext, useEffect, useState } from "react";
+// import { useParams, useNavigate, Link } from "react-router-dom";
+// import Swal from "sweetalert2";
+// import toast from "react-hot-toast";
+// import { AuthContext } from "../src/context/AuthContext";
+
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import { AuthContext } from "../context/AuthContext";
 
 const UpdateProperties = () => {
   const { id } = useParams();
@@ -81,7 +87,7 @@ const UpdateProperties = () => {
   }
 
   return (
-    <div className=" px-4 py-6 card border bg-sky-200 border-gray-200  w-full  max-w-2xl mx-auto shadow-2xl rounded-lg mt-30">
+    <div className=" px-4 py-6 card border bg-sky-200 border-gray-200  w-full  max-w-2xl mx-auto shadow-2xl rounded-lg mt-30 md:mt-7">
       <h2 className="text-2xl font-bold mb-6 text-center text-[#094ee5] ">Update Property</h2>
       <form onSubmit={handleUpdate} className="space-y-4 ">
         <div>

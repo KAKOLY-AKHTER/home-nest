@@ -1,27 +1,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const MyProperties = () => {
@@ -52,7 +34,7 @@ const MyProperties = () => {
 
 
   const handleUpdate = (id) => {
-    navigate(`/update-properties/${id}`);
+    navigate(`/dashboard/update-properties/${id}`);
   };
 
  
@@ -92,7 +74,7 @@ const MyProperties = () => {
   }
 
   return (
-    <div className="px-4 py-6 md:mt-30 mt-40 mx-auto max-w-[1250px]">
+    <div className="px-4 py-2 md:mt-5 mt-40 mx-auto max-w-[1250px]">
       <h2 className="text-3xl font-bold mb-10 text-center text-[#094ee5] ">My Property Listings</h2>
 
       {properties.length === 0 ? (

@@ -15,7 +15,7 @@ const TopRated = () => {
                              RATES
                             </span>
                           </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#094ee5] mb-4">
+                    <h2 className="text-4xl drop-shadow-xl md:text-5xl font-bold text-[#094ee5] mb-4">
                         Top Rated Agents
                     </h2>
                     <p className="text-gray-600 text-lg max-w-3xl mx-auto">

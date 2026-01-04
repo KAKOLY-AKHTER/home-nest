@@ -5,9 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import Loading from "../components/Loading";
-import { FaFacebook } from "react-icons/fa6";
-import { FacebookAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
+
 
 
 export default function SignUp() {
@@ -21,7 +19,29 @@ export default function SignUp() {
   const [error, setError] = useState({});
  const [success, setSuccess] = useState("");
 
-const fbProvider = new FacebookAuthProvider();
+const [demoFilled, setDemoFilled] = useState(false);
+
+
+   const demoUser = {
+    email: "kakolydemo12@gamil.com",
+    password: "KAde12@k",
+    name: "Kakoly Akhter",
+    photo: "https://img.freepik.com/premium-vector/young-man-avatar-character-due-avatar-man-vector-icon-cartoon-illustration_1186924-4438.jpg?semt=ais_hybrid&w=740&q=80"
+  };
+
+
+
+const handleDemoFill = (e) => {
+  e.preventDefault();
+  setName(demoUser.name);
+  setPhoto(demoUser.photo);
+  setEmail(demoUser.email);
+  setPassword(demoUser.password);
+  setDemoFilled(true);
+  toast.success("Demo credentials filled! Now click Register.");
+};
+
+
 
 
   const navigate = useNavigate();
@@ -34,18 +54,18 @@ const fbProvider = new FacebookAuthProvider();
     return errors;
   };
 
-const handleFacebookLogin = async () => {
-  try {
-    const result = await signInWithPopup(auth, fbProvider);
-    const user = result.user;
-    const token = await user.getIdToken();
+// const handleFacebookLogin = async () => {
+//   try {
+//     const result = await signInWithPopup(auth, fbProvider);
+//     const user = result.user;
+//     const token = await user.getIdToken();
 
-    toast.success("Logged in with Facebook");
-    navigate("/") 
-  } catch (err) {
-    toast.error(err.message);
-  }
-};
+//     toast.success("Logged in with Facebook");
+//     navigate("/") 
+//   } catch (err) {
+//     toast.error(err.message);
+//   }
+// };
 
 
 
@@ -125,38 +145,28 @@ const handleFacebookLogin = async () => {
       </form>
 
       <div className="flex gap-2 mt-4">
-  <button
-    type="button"
-    onClick={() => {
-      setEmail("demo.user@homenest.com");
-      setPassword("DemoUser123!");
-    }}
-    className="btn btn-outline w-1/2"
-  >
-    Demo User
-  </button>
+ <button
+  type="button"
+  onClick={handleDemoFill}
+  className="btn btn-success w-full mt-4"
+   disabled={demoFilled}
+>
+  🚀 Quick Demo Fill
+</button>
 
-  <button
-    type="button"
-    onClick={() => {
-      setEmail("demo.admin@homenest.com");
-      setPassword("DemoAdmin123!");
-    }}
-    className="btn btn-outline w-1/2"
-  >
-    Demo Admin
-  </button>
+
+ 
 </div>
 
 
       <div className="mt-4 text-center ">--OR--</div>
-
+{/* 
       <button
   onClick={handleFacebookLogin}
   className="btn btn-outline w-full mt-2 flex justify-center"
 >
  <FaFacebook></FaFacebook> Continue with Facebook
-</button>
+</button> */}
 
       <button onClick={async () => {
         setLoading(true);

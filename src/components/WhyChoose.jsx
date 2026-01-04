@@ -11,7 +11,7 @@ const WhyChoose = () => {
 
     {/* Section Title */}
     <div className="text-center mb-12">
-      <h2 className="text-5xl font-bold text-[#094ee5] mb-4">Why choose us</h2>
+      <h2 className="text-5xl font-bold drop-shadow-xl text-[#094ee5] mb-4">Why choose us</h2>
       <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
         Your Trusted Partner in Real Estate Success, With Expertise in Property and Investment,
         We're Here to Guide You Towards Your Dream Apartment.

@@ -3,11 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../context/AuthContext";
-import { FaEye, FaRegEyeSlash } from "react-icons/fa";
+import { FaEye, FaRegEyeSlash, FaUser } from "react-icons/fa";
 import Loading from "../components/Loading";
-import { FaFacebook } from "react-icons/fa6";
-import { FacebookAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
 
 
 export default function Login() {
@@ -19,25 +16,43 @@ export default function Login() {
   const [error, setError] = useState({});
   const [success, setSuccess] = useState("");
 
-const fbProvider = new FacebookAuthProvider();
+
 
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
 
-  const handleFacebookLogin = async () => {
-  try {
-    const result = await signInWithPopup(auth, fbProvider);
-    const user = result.user;
-    const token = await user.getIdToken();
+  const demoUser ={
+ email: "kakolydemo12@gamil.com",
+    password: "KAde12@k",
+  }
+  
 
-    toast.success("Logged in with Facebook");
-    navigate("/") 
+  const handleDemoLogin = async () => {
+  setLoading(true);
+  setError({});
+  setSuccess("");
+
+  try {
+    // auto fill (optional but nice UX)
+    setEmail(demoUser.email);
+    setPassword(demoUser.password);
+
+    await loginWithEmail(demoUser.email, demoUser.password);
+
+    setSuccess("Logged in as Demo User");
+    toast.success("Logged in as Demo User");
+    navigate(from, { replace: true });
   } catch (err) {
+    setError({ general: err.message });
     toast.error(err.message);
+  } finally {
+    setLoading(false);
   }
 };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -116,39 +131,35 @@ const fbProvider = new FacebookAuthProvider();
       </form>
  {/* Demo credentials */}
       <div className="flex gap-2 mt-4">
-        <button
-          type="button"
-          onClick={() => {
-            setEmail("demo.user@homenest.com");
-            setPassword("DemoUser123!");
-          }}
-          className="btn btn-outline w-1/2"
-        >
-          Demo User
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setEmail("demo.admin@homenest.com");
-            setPassword("DemoAdmin123!");
-          }}
-          className="btn btn-outline w-1/2"
-        >
-          Demo Admin
-        </button>
+         <button
+            onClick={handleDemoLogin}
+            disabled={loading}
+            className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition ${
+              loading 
+                ? "bg-gray-100 text-gray-400 cursor-not-allowed" 
+                : "bg-gradient-to-r from-blue-600 to-sky-500 text-white hover:from-blue-700 hover:to-sky-600"
+            }`}
+          >
+            {loading ? (
+              <>
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                Logging in...
+              </>
+            ) : (
+              <>
+                <FaUser />
+                Login as Demo User
+              </>
+            )}
+          </button>
+          
+       
       </div>
 
 
 
      
       <div className="mt-4 text-center">---OR---</div>
-
-      <button
-  onClick={handleFacebookLogin}
-  className="btn btn-outline w-full mt-2 flex justify-center"
->
- <FaFacebook></FaFacebook> Continue with Facebook
-</button>
 
     <button
         onClick={async () => {

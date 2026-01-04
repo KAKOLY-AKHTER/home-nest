@@ -48,12 +48,15 @@ useEffect(() => {
 
   return (
     <div className="container mx-auto mt-10 max-w-[1280px] px-4 md:py-20 py-30">
-      {/*  Hero Banner Section */}
+     
+
+
+
       <section className="flex flex-col md:flex-row items-center justify-between bg-white p-6 rounded-lg shadow-md">
         {/* Left: Text + Swiper text */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h2 className="font-bold leading-tight">
-            <span className="text-4xl md:text-6xl text-[#ff6501]">Find &</span>
+          <h2 className="font-bold drop-shadow-lg leading-tight">
+            <span className="text-4xl md:text-6xl  text-[#ff6501]">Find &</span>
             <br />
             <span className="text-4xl md:text-6xl text-blue-600">
               Invest Smartly
@@ -81,7 +84,7 @@ useEffect(() => {
 
            <Link
             to="/all-properties"
-            className="inline-block mt-6 px-6 py-3 bg-gradient-to-r from-blue-700 to-sky-500 text-white rounded-full  hover:from-red-500 hover:to-orange-400 transition"
+            className="inline-block mt-6 px-6 py-4 bg-gradient-to-r from-blue-700 to-sky-500 text-white rounded-full  hover:from-red-500 hover:to-orange-400 transition"
           >
             Explore Properties
           </Link>
@@ -95,7 +98,7 @@ useEffect(() => {
         behavior: "smooth",      
       })
     }
-    className="h-12 w-12 flex items-center justify-center 
+    className="h-13 w-13 flex items-center justify-center 
                bg-gradient-to-r from-blue-600 to-sky-400 
                rounded-full animate-bounce shadow-lg cursor-pointer"
   >
@@ -133,10 +136,12 @@ useEffect(() => {
         </div>
       </section>
 
+     
+
       {/* Featured Properties */}
       <section className="mt-16">
          <div className="text-center mb-10">
-    <h2 className="text-5xl font-bold text-[#094ee5] mb-4">
+    <h2 className="text-5xl font-bold drop-shadow-xl text-[#094ee5] mb-4">
       Featured Properties
     </h2>
     <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">

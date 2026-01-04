@@ -16,7 +16,7 @@ const Testimonial = () => {
                                   TESTIMONIALS
                                  </span>
                                </div>
-      <h2 className="text-4xl md:text-5xl font-bold text-[#094ee5] mb-4">
+      <h2 className="text-4xl md:text-5xl font-bold drop-shadow-xl text-[#094ee5] mb-4">
         What Our Clients Say
       </h2>
       <p className="text-gray-600 text-lg max-w-2xl mx-auto">
